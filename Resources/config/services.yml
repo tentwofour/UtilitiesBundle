@@ -1,0 +1,6 @@
+parameters:
+    ten24utilities.formatter.phonenumber.class: %Ten24\UtiltiesBundle\Formatter\PhoneNumber%
+
+services:
+    ten24utilities.formatter.phonenumber:
+        class: %ten24utilities.formatter.phonenumber.class%

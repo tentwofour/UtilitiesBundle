@@ -1,0 +1,27 @@
+{
+  "name": "tentwofour/utilities-bundle",
+  "type": "library",
+  "description": "Provides some common helpers, formatters, and other utilities for PHP development",
+  "keywords": ["symfony2", "ten24", "tentwofour"],
+  "homepage": "https://github.com/tentwofour/UtilitiesBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Blair D. Patterson",
+      "homepage": "http://tentwentyfour.ca",
+      "email": "blair@tentwentyfour.ca"
+    }
+  ],
+  "require-dev": {
+  },
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-0": { "Ten24\\UtilitiesBundle": "" }
+  },
+  "target-dir": "Ten24/UtilitiesBundle",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  }
+}
