@@ -58,7 +58,7 @@ class PhoneNumber
      * Common format
      * ie. 1-306-555-5555
      */
-    const FORMATE_HYPHENATED = '%d-%d-%d-%d';
+    const FORMAT_HYPHENATED = '%d-%d-%d-%d';
 
     /**
      * The format returned by the getDisplayPhoneNumber
