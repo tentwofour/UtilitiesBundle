@@ -58,7 +58,7 @@ class PhoneNumber
      * Common format
      * ie. 1-306-555-5555
      */
-    const FORMAT_HYPHENATED = '%d-%d-%d-%d';
+    const FORMATE_HYPHENATED = '%d-%d-%d-%d';
 
     /**
      * The format returned by the getDisplayPhoneNumber
@@ -87,10 +87,10 @@ class PhoneNumber
      * @param string $format
      * @param string $phoneNumber
      */
-    public function __construct($format = self::FORMAT_NA, $phoneNumber = null)
+    public function __construct($phoneNumber = null, $format = self::FORMAT_NA)
     {
-        $this->format = $format;
         $this->phoneNumber = $phoneNumber;
+        $this->format = $format;
     }
 
     /**
