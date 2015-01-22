@@ -58,7 +58,7 @@ class PhoneNumber
      * Common format
      * ie. 1-306-555-5555
      */
-    const FORMATE_HYPHENATED = '%d-%d-%d-%d';
+    const FORMAT_HYPHENATED = '%d-%d-%d-%d';
 
     /**
      * The format returned by the getDisplayPhoneNumber
@@ -89,8 +89,8 @@ class PhoneNumber
      */
     public function __construct($phoneNumber = null, $format = self::FORMAT_NA)
     {
-        $this->phoneNumber = $phoneNumber;
         $this->format = $format;
+        $this->phoneNumber = $phoneNumber;
     }
 
     /**
@@ -101,13 +101,16 @@ class PhoneNumber
      */
     public function format()
     {
-        $this->ensurePhoneNumberExists();
+        if (strlen($this->phoneNumber) >= 7)
+        {
+            return sprintf($this->format,
+                $this->getCountryCode(),
+                $this->getAreaCode(),
+                $this->getPrefix(),
+                $this->getLineNumber());
+        }
 
-        return sprintf($this->format,
-            $this->getCountryCode(),
-            $this->getAreaCode(),
-            $this->getPrefix(),
-            $this->getLineNumber());
+        return null;
     }
 
     /**
@@ -175,12 +178,12 @@ class PhoneNumber
         if (null === $this->components)
         {
             $pattern = '/
-                (?P<countryCode>\+?\d{1,2})?\D*         # optional country code
-                (?P<areaCode>\d{3})?\D*                 # optional area code
-                (?P<prefix>\d{3})\D*                    # first three (prefix)
-                (?P<lineNumber>\d{4})                   # last four (line number)
-                (?P<extensionDelimiter>?:\D+|$)         # extension delimiter or EOL
-                (?P<extension>\d*)                      # optional extension
+                (?<countryCode>(\+?\d{1,2})?\D*)         # optional country code
+                (?<areaCode>(\d{3})?\D*)                 # optional area code
+                (?<prefix>(\d{3})\D*)                    # first three (prefix)
+                (?<lineNumber>(\d{4}))                   # last four (line number)
+                (?<extensionDelimiter>(?:\D+|$))         # extension delimiter or EOL
+                (?<extension>(\d*))                      # optional extension
                 /x';
 
             if (preg_match($pattern, $this->phoneNumber, $matches))
@@ -223,19 +226,6 @@ class PhoneNumber
             default:
                 return null;
                 break;
-        }
-    }
-
-    /**
-     * Ensure that we have a phone number to work with
-     *
-     * @throws \BadFunctionCallException
-     */
-    private function ensurePhoneNumberExists()
-    {
-        if (null === $this->phoneNumber)
-        {
-            throw new \BadFunctionCallException('Please pass a phone number (string) to the constructor, or call setPhoneNumber().');
         }
     }
 
