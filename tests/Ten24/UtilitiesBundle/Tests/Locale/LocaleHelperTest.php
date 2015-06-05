@@ -2,7 +2,7 @@
 
 namespace Ten24\UtilitiesBundle\Tests;
 
-class LocaleHelperTest extends PHPUnit_Framework_TestCase
+class LocaleHelperTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetProvinces()
     {

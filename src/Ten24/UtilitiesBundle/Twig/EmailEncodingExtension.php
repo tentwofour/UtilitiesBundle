@@ -63,6 +63,6 @@ class EmailEncodingExtension extends \Twig_Extension
      */
     public function getName()
     {
-        return 'email_encoding_extension';
+        return 'ten24_emailencoder';
     }
 }

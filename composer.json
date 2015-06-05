@@ -2,7 +2,11 @@
   "name": "tentwofour/utilities-bundle",
   "type": "library",
   "description": "Provides some common helpers, formatters, and other utilities for PHP development",
-  "keywords": ["symfony2", "ten24", "tentwofour"],
+  "keywords": [
+    "symfony2",
+    "ten24",
+    "tentwofour"
+  ],
   "homepage": "https://github.com/tentwofour/UtilitiesBundle",
   "license": "MIT",
   "authors": [
@@ -12,11 +16,19 @@
       "email": "blair@tentwentyfour.ca"
     }
   ],
+  "require": {
+    "php": ">=5.3.0",
+    "symfony/form": "2.6.*",
+    "symfony/event-dispatcher": "2.6.*",
+    "twig/extensions": "1.2.*"
+  },
   "require-dev": {
   },
   "minimum-stability": "stable",
   "autoload": {
-    "psr-0": { "Ten24\\UtilitiesBundle": "" }
+    "psr-0": {
+      "Ten24\\UtilitiesBundle": "src"
+    }
   },
   "target-dir": "Ten24/UtilitiesBundle",
   "extra": {

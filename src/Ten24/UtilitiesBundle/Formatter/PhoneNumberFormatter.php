@@ -3,10 +3,10 @@
 namespace Ten24\UtilitiesBundle\Formatter;
 
 /**
- * Class PhoneNumber
+ * Class PhoneNumberFormatter
  * @package Ten24\UtilitiesBundle\Formatter
  */
-class PhoneNumber
+class PhoneNumberFormatter
 {
     /**
      * Country code component
@@ -42,7 +42,7 @@ class PhoneNumber
      * Common format, North American
      * ie. 1 (306) 555-5555
      */
-    const FORMAT_NA = '%d (%d) %d-%d';
+    const FORMAT_NA = '+%d (%d) %d-%d';
 
     /**
      * @var string
@@ -50,7 +50,7 @@ class PhoneNumber
      * Common format
      * ie. 1.306.555.5555
      */
-    const FORMAT_DOTTED = '%d.%d.%d.%d';
+    const FORMAT_DOTTED = '+%d.%d.%d.%d';
 
     /**
      * @var string
@@ -58,7 +58,7 @@ class PhoneNumber
      * Common format
      * ie. 1-306-555-5555
      */
-    const FORMAT_HYPHENATED = '%d-%d-%d-%d';
+    const FORMAT_HYPHENATED = '+%d-%d-%d-%d';
 
     /**
      * The format returned by the getDisplayPhoneNumber
@@ -122,7 +122,7 @@ class PhoneNumber
      */
     public function reverseFormat()
     {
-        $pattern = '/[^0-9+]/';
+        $pattern = '/[^\+,0-9+]/';
 
         return preg_replace($pattern, '', $this->phoneNumber);
     }
@@ -225,7 +225,6 @@ class PhoneNumber
                 break;
             default:
                 return null;
-                break;
         }
     }
 
