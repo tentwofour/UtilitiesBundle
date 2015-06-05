@@ -3,7 +3,6 @@
   "type": "library",
   "description": "Provides some common helpers, formatters, and other utilities for PHP development",
   "keywords": [
-    "symfony2",
     "ten24",
     "tentwofour"
   ],
@@ -33,7 +32,7 @@
   "target-dir": "Ten24/UtilitiesBundle",
   "extra": {
     "branch-alias": {
-      "dev-master": "1.0.x-dev"
+      "dev-master": "0.0.2-dev"
     }
   }
 }
