@@ -59,7 +59,7 @@ class PostalCodeFormatter
         {
             case self::FORMAT_CANADA:
                 preg_match($this->displayFormat, $this->postalCode, $matches);
-                return sprintf('%s %s', $matches[1], $matches[2]);
+                return strtoupper(sprintf('%s %s', $matches[1], $matches[2]));
                 break;
             case self::FORMAT_USA:
                 return $this->postalCode;
@@ -81,7 +81,7 @@ class PostalCodeFormatter
     {
         $pattern = '/[^a-z0-9+]/i';
 
-        return preg_replace($pattern, '', $this->postalCode);
+        return strtoupper(preg_replace($pattern, '', $this->postalCode));
     }
 
     /**

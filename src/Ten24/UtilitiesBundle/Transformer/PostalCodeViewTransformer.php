@@ -3,7 +3,7 @@
 namespace Ten24\UtilitiesBundle\Transformer;
 
 use Symfony\Component\Form\DataTransformerInterface;
-use Ten24\UtilitiesBundle\Formatter\PostalCode;
+use Ten24\UtilitiesBundle\Formatter\PostalCodeFormatter;
 
 class PostalCodeViewTransformer implements DataTransformerInterface
 {
@@ -15,7 +15,7 @@ class PostalCodeViewTransformer implements DataTransformerInterface
     /**
      * @param string $postalCodeFormat
      */
-    public function __construct($postalCodeFormat = PostalCode::FORMAT_CANADA)
+    public function __construct($postalCodeFormat = PostalCodeFormatter::FORMAT_CANADA)
     {
         $this->postalCodeFormat = $postalCodeFormat;
     }
@@ -31,7 +31,7 @@ class PostalCodeViewTransformer implements DataTransformerInterface
      */
     public function transform($formattedPostalCode)
     {
-        $postalCode = new PostalCode($formattedPostalCode, $this->postalCodeFormat);
+        $postalCode = new PostalCodeFormatter($formattedPostalCode, $this->postalCodeFormat);
 
         return $postalCode->format();
     }
@@ -48,7 +48,7 @@ class PostalCodeViewTransformer implements DataTransformerInterface
      */
     public function reverseTransform($unformattedPostalCode)
     {
-        $postalCode = new PostalCode($unformattedPostalCode, $this->postalCodeFormat);
+        $postalCode = new PostalCodeFormatter($unformattedPostalCode, $this->postalCodeFormat);
 
         return $postalCode->reverseFormat();
     }
