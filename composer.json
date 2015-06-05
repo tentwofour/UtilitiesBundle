@@ -26,13 +26,12 @@
   "minimum-stability": "stable",
   "autoload": {
     "psr-0": {
-      "Ten24\\UtilitiesBundle": "src"
+      "Ten24\\": "src/"
     }
   },
-  "target-dir": "Ten24/UtilitiesBundle",
   "extra": {
     "branch-alias": {
-      "dev-master": "0.0.2-dev"
+      "dev-master": "1.0.x-dev"
     }
   }
 }
