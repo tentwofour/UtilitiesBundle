@@ -58,8 +58,13 @@ class PostalCodeFormatter
         switch ($this->displayFormat)
         {
             case self::FORMAT_CANADA:
-                preg_match($this->displayFormat, $this->postalCode, $matches);
-                return strtoupper(sprintf('%s %s', $matches[1], $matches[2]));
+                if (preg_match($this->displayFormat, $this->postalCode, $matches) && count($matches) === 3)
+                {
+                    return strtoupper(sprintf('%s %s', $matches[1], $matches[2]));
+                }
+
+                return $this->postalCode;
+
                 break;
             case self::FORMAT_USA:
                 return $this->postalCode;
